@@ -352,18 +352,6 @@ Once you've implemented all of the [services](/docs/sdk/development/services) an
 
 The service provider is what will be executed to create an instance of your implementation. This class should be used to do everything that needs to be done to prepare your coin to be usable. With ARK, for example, we need to [retrieve configurations from the blockchain network](https://github.com/PayvoHQ/sdk/blob/master/packages/sdk-ark/source/coin.provider.ts#L20-L47) while Zilliqa doesn't require any extra work which means we can just [construct the instance](https://github.com/PayvoHQ/sdk/blob/master/packages/sdk-zil/source/coin.provider.ts#L6-L8) and move on. **Use [this](https://github.com/PayvoHQ/sdk/blob/master/packages/sdk-zil/source/coin.provider.ts) as an example and store it in the `coin.provider.ts` file of your package.**
 
-### Exporting Schema
-
-The validation schema is responsible for ensuring that the required data is passed in during construction and that it is valid. **Use [this](https://github.com/PayvoHQ/sdk/blob/master/packages/sdk-ark/source/coin.schema.ts) as an example and store it in the `coin.schema.ts` file of your package.**
-
-### Exporting Services
-
-The services are responsible for communicating with the network and creating cryptographically signed data and need to be exported to ensure that the SDK can construct them. **Use [this](https://github.com/PayvoHQ/sdk/blob/master/packages/sdk-ark/source/coin.services.ts) as an example and store it in the `coin.services.ts` file of your package.**
-
-### Exporting DTOs
-
-The data transfer objects are responsible for normalizing data and need to be exported to ensure that the SDK can construct them. **Use [this](https://github.com/PayvoHQ/sdk/blob/master/packages/sdk-ark/source/coin.dtos.ts) as an example and store it in the `coin.dtos.ts` file of your package.**
-
 ### Exporting Everything
 
 Now that we've prepared all working parts that need to be exported we can organize them and export the whole construct. **Use [this](https://github.com/PayvoHQ/sdk/blob/master/packages/sdk-ark/source/index.ts) as an example and store it in the `index.ts` file of your package.** Ensure that the name of the export reflects the name of your primary ticker. For ARK the primary ticker is `ARK` because it can be traded on exchanges while `DARK` is the secondary ticker because it is the testnet token.
